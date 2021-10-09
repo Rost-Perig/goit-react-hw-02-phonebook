@@ -28,7 +28,7 @@ class ContactList extends Component {
                 <FindForm transDataToUp={this.getFindData }/>
                 
                <ul className={s.list}>
-                {[...this.tempContactArr].filter(item => item.subscriber.includes(this.state.findData)).map(item => {
+                {[...this.tempContactArr].filter(item => item.subscriber.toLowerCase().includes(this.state.findData.toLowerCase())).map(item => {
                     const { id } = item;
                     return (
                         <li key={id} className={s.listItem}>
