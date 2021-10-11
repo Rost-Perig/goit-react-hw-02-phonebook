@@ -10,19 +10,17 @@ class App extends Component {
   };
 
   contactEraser = data => {
-    // console.log(data);
-    this.setState((prevState) => {
-      // console.log(prevState.contacts.id);
-      // console.log(prevState.contacts.findIndex(item => item.id === data));
-      prevState.contacts.splice(prevState.contacts.findIndex(item => item.id === data), 1);
+    this.setState(() => {
+      let tempArr = [...this.state.contacts];
+      // let deleteObjIndex = tempArr.findIndex(item => item.id === data);
+      // tempArr.splice(deleteObjIndex , 1);
+      tempArr.splice(tempArr.findIndex(item => item.id === data), 1);
       return ({
-        contacts: [...prevState.contacts]
-      })
-     })
-    
-  }
-
-
+        contacts: tempArr,
+      });
+    });
+  };
+  
   appStateChanger = data => {
     if (this.state.contacts.findIndex(item => item.subscriber === data.subscriber) !== -1) {
       return alert(`Абонент с именем ${data.subscriber} уже существует!`);
