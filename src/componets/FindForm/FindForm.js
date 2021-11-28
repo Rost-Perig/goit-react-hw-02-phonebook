@@ -14,7 +14,7 @@ class FindForm extends Component {
         this.props.transDataToUp(e.currentTarget.value);
     }
 
-    reset = (e) => this.setState({ inputValue: '' });
+    // reset = (e) => this.setState({ inputValue: '' });
 
     render() {
         const { inputValue } = this.state;
@@ -28,7 +28,7 @@ class FindForm extends Component {
                     name="find"
                     value={inputValue}
                     onChange={findInputChange}
-                    onBlur={reset}
+                    // onBlur={reset}
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                     required

@@ -10,25 +10,25 @@ class ContactList extends Component {
         findData: ""
     };
 
-    tempContactArr = [];
+    // tempContactArr = [];
 
-    getContactList = () => {
-        this.tempContactArr = [...this.props.contactArr].sort((a, b) => a.subscriber.localeCompare(b.subscriber));
-    };
+    // getContactList = () => {
+    //     this.tempContactArr = [...this.props.contactArr].sort((a, b) => a.subscriber.localeCompare(b.subscriber));
+    // };
 
     getFindData = (data) => {
         this.setState({ findData: data })
     };
     
     render() {
-           this.getContactList(); 
+        //    this.getContactList(); 
         return (
             <div>
 
                 <FindForm transDataToUp={this.getFindData }/>
                 
                <ul className={s.list}>
-                {[...this.tempContactArr].filter(item => item.subscriber.toLowerCase().includes(this.state.findData.toLowerCase())).map(item => {
+                {[...this.props.contactArr].sort((a, b) => a.subscriber.localeCompare(b.subscriber)).filter(item => item.subscriber.toLowerCase().includes(this.state.findData.toLowerCase())).map(item => {
                     const { id } = item;
                     return (
                         <li key={id} className={s.listItem}>
